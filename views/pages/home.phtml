@@ -1,0 +1,54 @@
+<?php
+/**
+ * @var \Example\Block\Pages\HomeBlock $block
+ */
+?>
+<p>Hello there <?php echo $block->getFirstName() . ' ' . $block->getLastName(); ?>!<p>
+
+<p>You successfully landed on the home page. Congrats!</p>
+
+<form id="register-lead">
+    <input type="email" name="email" class="lead-input" />
+    <input type="text" name="firstname" class="lead-input" />
+    <input type="text" name="lastname" class="lead-input" />
+    <input type="tel" name="phone" class="lead-input" />
+    <input type="text" name="address" class="lead-input" />
+    <input type="text" name="square_footage" class="lead-input" />
+</form>
+
+<div id="div1">
+
+</div>
+
+<script>
+
+    var count = 0;
+
+    $('.lead-input').on('keyup', function () {
+
+        var form = $('#register-lead');
+        var data = form.serialize();
+
+        console.log(data);
+
+        //alert($(this).val());
+        $.ajax({
+            url: "api/leads/leads.php?controller=leads&action=create",
+            data: data,
+            type: 'post',
+            success: function(result){
+
+                count = count + 1;
+                //alert(result);
+                //alert('typed');
+                $("#div1").html(result);
+
+                console.log(count);
+            }
+        });
+
+    });
+
+</script>
+
+

@@ -1,0 +1,48 @@
+<DOCTYPE html>
+<html>
+  <head>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <style>
+
+          .messages .error {
+              background-color: lightcoral;
+          }
+
+          .messages .success {
+              background-color: green;
+          }
+
+      </style>
+  </head>
+  <body>
+    <header>
+        <ul>
+            <li><a href='/index.php'>Home</a></li>
+            <li><a href='/index.php?controller=login&action=home'>Login</a></li>
+            <li><a href='/index.php?controller=register&action=home'>Register</a></li>
+        </ul>
+    </header>
+
+    <div class="messages">
+        <?php if (isset($_SESSION['is_message'])) : ?>
+            <div class="<?php echo $_SESSION['type_message']; ?>"><?php echo $_SESSION['message']; ?></div>
+        <?php
+
+            unset($_SESSION['is_message']);
+            unset($_SESSION['type_message']);
+            unset($_SESSION['message']);
+
+        endif;
+
+        ?>
+    </div>
+
+    <div class="main">
+        <?php require_once('./routes.php'); ?>
+    </div>
+
+    <footer>
+      Copyright
+    </footer>
+  <body>
+<html>

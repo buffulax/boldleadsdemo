@@ -1,0 +1,11 @@
+<p>Oops, this is the error page.</p>
+
+<p>Looks like something went wrong.</p>
+
+<?php
+
+if ($this->is_error) {
+    echo '<p style="background: red;">'.$this->error_message.'</p>';
+}
+
+?>
