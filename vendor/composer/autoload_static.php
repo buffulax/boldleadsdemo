@@ -9,7 +9,6 @@ class ComposerStaticInit4b3ab50ce35e0bc041ef4213370bc6b0
     public static $prefixLengthsPsr4 = array (
         'E' => 
         array (
-            'Example\\Model\\Users\\' => 20,
             'Example\\Model\\Leads\\' => 20,
             'Example\\Database\\' => 17,
             'Example\\Controller\\Pages\\' => 25,
@@ -21,10 +20,6 @@ class ComposerStaticInit4b3ab50ce35e0bc041ef4213370bc6b0
     );
 
     public static $prefixDirsPsr4 = array (
-        'Example\\Model\\Users\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/Model/Users',
-        ),
         'Example\\Model\\Leads\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src/Model/Leads',
@@ -56,9 +51,11 @@ class ComposerStaticInit4b3ab50ce35e0bc041ef4213370bc6b0
     );
 
     public static $classMap = array (
+        'Example\\Block\\Pages\\DashboardBlock' => __DIR__ . '/../..' . '/src/Block/Pages/DashboardBlock.php',
         'Example\\Block\\Pages\\HomeBlock' => __DIR__ . '/../..' . '/src/Block/Pages/HomeBlock.php',
         'Example\\Controller\\Api\\LeadsController' => __DIR__ . '/../..' . '/src/Controller/Api/LeadsController.php',
         'Example\\Controller\\Framework\\AbstractPageController' => __DIR__ . '/../..' . '/src/Controller/Framework/AbstractPageController.php',
+        'Example\\Controller\\Pages\\DashboardController' => __DIR__ . '/../..' . '/src/Controller/Pages/DashboardController.php',
         'Example\\Controller\\Pages\\HomeController' => __DIR__ . '/../..' . '/src/Controller/Pages/HomeController.php',
         'Example\\Database\\Connection' => __DIR__ . '/../..' . '/src/Database/Connection.php',
         'Example\\Model\\Leads\\Leads' => __DIR__ . '/../..' . '/src/Model/Leads/Leads.php',

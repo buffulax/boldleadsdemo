@@ -3,15 +3,15 @@
 namespace Example\Controller\Pages;
 
 use \Example\Controller\Framework\AbstractPageController;
-use \Example\Block\Pages\HomeBlock;
+use \Example\Block\Pages\DashboardBlock;
 
 /**
- * Class HomeController
+ * Class DashboardController
  * @package Example\Controller\Pages
  */
-class HomeController extends AbstractPageController {
+class DashboardController extends AbstractPageController {
 
-    /** @var \Example\Block\Pages\HomeBlock $block */
+    /** @var \Example\Block\Pages\DashboardBlock $block */
     private $block;
 
     /**
@@ -19,7 +19,7 @@ class HomeController extends AbstractPageController {
      */
     public function __construct()
     {
-        $this->block = new HomeBlock();
+        $this->block = new DashboardBlock();
     }
 
     /**
@@ -27,8 +27,8 @@ class HomeController extends AbstractPageController {
      */
     public function home() {
 
-    	$block = $this->block;
-    	require_once('./views/pages/home.phtml');
+        $block = $this->block;
+        require_once('./views/pages/dashboard.phtml');
 
-	}
+    }
 }

@@ -13,6 +13,10 @@
       case 'leads':
           $controller = new \Example\Controller\Api\LeadsController();
           break;
+      case 'dashboard':
+            $controller = new \Example\Controller\Pages\DashboardController();
+            break;
+
     }
 
     //echo $name . ' -> ' . $action; die();
@@ -26,8 +30,7 @@
   $controllers =
       [
           'pages' => ['home', 'error'],
-          'login' => ['home', 'error'],
-          'register' => ['home', 'create', 'error'],
+          'dashboard' => ['home', 'error'],
           'leads' => ['get', 'create']
       ];
 

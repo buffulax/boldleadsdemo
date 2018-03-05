@@ -8,22 +8,15 @@ namespace Example\Block\Pages;
  */
 class HomeBlock {
 
-    private $firstName = '';
-    private $lastName = '';
+    private $title = 'Contact Us';
 
     public function __construct()
     {
-        $this->firstName = 'Jon';
-        $this->lastName = 'Snow';
+
     }
 
-    public function getFirstName()
+    public function getTitle()
     {
-        return $this->firstName;
-    }
-
-    public function getLastName()
-    {
-        return $this->lastName;
+        return $this->title;
     }
 }

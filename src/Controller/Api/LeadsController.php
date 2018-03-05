@@ -18,7 +18,11 @@ class LeadsController {
         $this->leads = new \Example\Model\Leads\Leads();
     }
 
-
+    /**
+     * @function get
+     *
+     * @return array
+     */
     public function get() {
 
         $results = $this->leads->getLeads();
@@ -26,6 +30,11 @@ class LeadsController {
         return $results;
     }
 
+    /**
+     * @function create
+     *
+     * @return void
+     */
     public function create() {
 
         $result = [

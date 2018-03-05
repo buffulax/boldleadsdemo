@@ -12,9 +12,6 @@ require_once('./vendor/autoload.php');
     $action     = 'home';
   }
 
-//print_r($_SESSION);
-//die();
-
   ob_start();
   require_once('./views/layout.phtml');
   $output = ob_get_contents();
