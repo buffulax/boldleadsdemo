@@ -6,7 +6,6 @@
         	"Example\\Controller\\Pages\\" : "src/Controller/Pages",
         	"Example\\Controller\\Framework\\" : "src/Controller/Framework",
 			"Example\\Block\\Pages\\" : "src/Block/Pages",
-			"Example\\Model\\Users\\" : "src/Model/Users",
 			"Example\\Controller\\Api\\" : "src/Controller/Api",
 			"Example\\Model\\Leads\\" : "src/Model/Leads"
     	}

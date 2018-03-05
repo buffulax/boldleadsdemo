@@ -10,9 +10,11 @@ class ComposerStaticInit4b3ab50ce35e0bc041ef4213370bc6b0
         'E' => 
         array (
             'Example\\Model\\Users\\' => 20,
+            'Example\\Model\\Leads\\' => 20,
             'Example\\Database\\' => 17,
             'Example\\Controller\\Pages\\' => 25,
             'Example\\Controller\\Framework\\' => 29,
+            'Example\\Controller\\Api\\' => 23,
             'Example\\Block\\Pages\\' => 20,
             'Example\\' => 8,
         ),
@@ -22,6 +24,10 @@ class ComposerStaticInit4b3ab50ce35e0bc041ef4213370bc6b0
         'Example\\Model\\Users\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src/Model/Users',
+        ),
+        'Example\\Model\\Leads\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Model/Leads',
         ),
         'Example\\Database\\' => 
         array (
@@ -35,6 +41,10 @@ class ComposerStaticInit4b3ab50ce35e0bc041ef4213370bc6b0
         array (
             0 => __DIR__ . '/../..' . '/src/Controller/Framework',
         ),
+        'Example\\Controller\\Api\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Controller/Api',
+        ),
         'Example\\Block\\Pages\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src/Block/Pages',
@@ -47,13 +57,11 @@ class ComposerStaticInit4b3ab50ce35e0bc041ef4213370bc6b0
 
     public static $classMap = array (
         'Example\\Block\\Pages\\HomeBlock' => __DIR__ . '/../..' . '/src/Block/Pages/HomeBlock.php',
-        'Example\\Block\\Pages\\RegisterBlock' => __DIR__ . '/../..' . '/src/Block/Pages/RegisterBlock.php',
+        'Example\\Controller\\Api\\LeadsController' => __DIR__ . '/../..' . '/src/Controller/Api/LeadsController.php',
         'Example\\Controller\\Framework\\AbstractPageController' => __DIR__ . '/../..' . '/src/Controller/Framework/AbstractPageController.php',
         'Example\\Controller\\Pages\\HomeController' => __DIR__ . '/../..' . '/src/Controller/Pages/HomeController.php',
-        'Example\\Controller\\Pages\\LoginController' => __DIR__ . '/../..' . '/src/Controller/Pages/LoginController.php',
-        'Example\\Controller\\Pages\\RegisterController' => __DIR__ . '/../..' . '/src/Controller/Pages/RegisterController.php',
         'Example\\Database\\Connection' => __DIR__ . '/../..' . '/src/Database/Connection.php',
-        'Example\\Model\\Users\\Users' => __DIR__ . '/../..' . '/src/Model/Users/Users.php',
+        'Example\\Model\\Leads\\Leads' => __DIR__ . '/../..' . '/src/Model/Leads/Leads.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

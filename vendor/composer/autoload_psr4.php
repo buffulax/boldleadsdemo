@@ -7,9 +7,11 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Example\\Model\\Users\\' => array($baseDir . '/src/Model/Users'),
+    'Example\\Model\\Leads\\' => array($baseDir . '/src/Model/Leads'),
     'Example\\Database\\' => array($baseDir . '/src/Database'),
     'Example\\Controller\\Pages\\' => array($baseDir . '/src/Controller/Pages'),
     'Example\\Controller\\Framework\\' => array($baseDir . '/src/Controller/Framework'),
+    'Example\\Controller\\Api\\' => array($baseDir . '/src/Controller/Api'),
     'Example\\Block\\Pages\\' => array($baseDir . '/src/Block/Pages'),
     'Example\\' => array($baseDir . '/src'),
 );

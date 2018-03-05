@@ -10,12 +10,6 @@
       case 'pages':
           $controller = new \Example\Controller\Pages\HomeController();
           break;
-      case 'login':
-          $controller = new \Example\Controller\Pages\LoginController();
-          break;
-      case 'register':
-          $controller = new \Example\Controller\Pages\RegisterController();
-          break;
       case 'leads':
           $controller = new \Example\Controller\Api\LeadsController();
           break;

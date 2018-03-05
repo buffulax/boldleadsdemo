@@ -43,10 +43,6 @@ class LeadsController {
 
         $lead = $this->leads->getLeadBySessionId(session_id());
 
-
-        //echo json_encode($_POST);
-        //die();
-
         try {
             if (count($lead) > 0){
                 $this->leads->updateLeadBySessionId($session_id, $email, $firstName, $lastName, $phone, $address, $square_footage);

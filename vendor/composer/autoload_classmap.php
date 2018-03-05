@@ -7,11 +7,9 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Example\\Block\\Pages\\HomeBlock' => $baseDir . '/src/Block/Pages/HomeBlock.php',
-    'Example\\Block\\Pages\\RegisterBlock' => $baseDir . '/src/Block/Pages/RegisterBlock.php',
+    'Example\\Controller\\Api\\LeadsController' => $baseDir . '/src/Controller/Api/LeadsController.php',
     'Example\\Controller\\Framework\\AbstractPageController' => $baseDir . '/src/Controller/Framework/AbstractPageController.php',
     'Example\\Controller\\Pages\\HomeController' => $baseDir . '/src/Controller/Pages/HomeController.php',
-    'Example\\Controller\\Pages\\LoginController' => $baseDir . '/src/Controller/Pages/LoginController.php',
-    'Example\\Controller\\Pages\\RegisterController' => $baseDir . '/src/Controller/Pages/RegisterController.php',
     'Example\\Database\\Connection' => $baseDir . '/src/Database/Connection.php',
-    'Example\\Model\\Users\\Users' => $baseDir . '/src/Model/Users/Users.php',
+    'Example\\Model\\Leads\\Leads' => $baseDir . '/src/Model/Leads/Leads.php',
 );
