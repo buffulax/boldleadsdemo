@@ -103,13 +103,32 @@ class Leads
     }
 
     /**
+     * @function getLeadById
+     *
+     * @param int $id
+     * @return array
+     */
+    public function getLeadById($id = 1)
+    {
+        $query = $this->pdo->prepare("SELECT * FROM leads WHERE id = :id");
+
+        $query->bindParam(":id", $id);
+
+        $query->execute();
+
+        $results = $query->fetch(\PDO::FETCH_ASSOC);
+
+        return $results;
+    }
+
+    /**
      * @function getLeads
      *
      * @return array
      */
     public function getLeads()
     {
-        $query = $this->pdo->prepare("SELECT * FROM webdata.leads");
+        $query = $this->pdo->prepare("SELECT * FROM leads");
 
         $query->execute();
 

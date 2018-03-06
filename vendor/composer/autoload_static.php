@@ -53,10 +53,12 @@ class ComposerStaticInit4b3ab50ce35e0bc041ef4213370bc6b0
     public static $classMap = array (
         'Example\\Block\\Pages\\DashboardBlock' => __DIR__ . '/../..' . '/src/Block/Pages/DashboardBlock.php',
         'Example\\Block\\Pages\\HomeBlock' => __DIR__ . '/../..' . '/src/Block/Pages/HomeBlock.php',
+        'Example\\Block\\Pages\\LeadBlock' => __DIR__ . '/../..' . '/src/Block/Pages/LeadBlock.php',
         'Example\\Controller\\Api\\LeadsController' => __DIR__ . '/../..' . '/src/Controller/Api/LeadsController.php',
         'Example\\Controller\\Framework\\AbstractPageController' => __DIR__ . '/../..' . '/src/Controller/Framework/AbstractPageController.php',
         'Example\\Controller\\Pages\\DashboardController' => __DIR__ . '/../..' . '/src/Controller/Pages/DashboardController.php',
         'Example\\Controller\\Pages\\HomeController' => __DIR__ . '/../..' . '/src/Controller/Pages/HomeController.php',
+        'Example\\Controller\\Pages\\LeadController' => __DIR__ . '/../..' . '/src/Controller/Pages/LeadController.php',
         'Example\\Database\\Connection' => __DIR__ . '/../..' . '/src/Database/Connection.php',
         'Example\\Model\\Leads\\Leads' => __DIR__ . '/../..' . '/src/Model/Leads/Leads.php',
     );

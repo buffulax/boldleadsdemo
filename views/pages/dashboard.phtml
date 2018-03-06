@@ -5,8 +5,6 @@
 ?>
 <h1><?php echo $block->getTitle(); ?></h1>
 
-<p>Please contact us. Thanks!</p>
-
 <table id="register-lead">
     <tr>
         <th>ID</th>
@@ -22,15 +20,15 @@
 
     <?php foreach ($block->getAllLeads() as $lead): ?>
         <tr>
-            <td><?php echo $lead['id']; ?></td>
-            <td><?php echo $lead['session_id']; ?></td>
-            <td><?php echo $lead['email']; ?></td>
-            <td><?php echo $lead['firstname']; ?></td>
-            <td><?php echo $lead['lastname']; ?></td>
-            <td><?php echo $lead['address']; ?></td>
-            <td><?php echo $lead['square_footage']; ?></td>
-            <td><?php echo $lead['updated_at']; ?></td>
-            <td><?php echo $lead['created_at']; ?></td>
+            <td><a href="index.php?controller=lead&action=home&id=<?=$lead['id']?>"><?php echo $lead['id']; ?></a></td>
+            <td><a href="index.php?controller=lead&action=home&id=<?=$lead['id']?>"><?php echo $lead['session_id']; ?></a></td>
+            <td><a href="index.php?controller=lead&action=home&id=<?=$lead['id']?>"><?php echo $lead['email']; ?></a></td>
+            <td><a href="index.php?controller=lead&action=home&id=<?=$lead['id']?>"><?php echo $lead['firstname']; ?></a></td>
+            <td><a href="index.php?controller=lead&action=home&id=<?=$lead['id']?>"><?php echo $lead['lastname']; ?></a></td>
+            <td><a href="index.php?controller=lead&action=home&id=<?=$lead['id']?>"><?php echo $lead['address']; ?></a></td>
+            <td><a href="index.php?controller=lead&action=home&id=<?=$lead['id']?>"><?php echo $lead['square_footage']; ?></a></td>
+            <td><a href="index.php?controller=lead&action=home&id=<?=$lead['id']?>"><?php echo $lead['updated_at']; ?></a></td>
+            <td><a href="index.php?controller=lead&action=home&id=<?=$lead['id']?>"><?php echo $lead['created_at']; ?></a></td>
         </tr>
     <?php endforeach; ?>
 

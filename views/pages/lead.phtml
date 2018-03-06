@@ -1,0 +1,21 @@
+<?php
+/**
+ * @var \Example\Block\Pages\LeadBlock $block
+ */
+
+$lead = $block->getLead();
+?>
+<h1><?php echo $block->getTitle(); ?></h1>
+
+<div class="lead-div">
+    <label for="register-lead" >Email: </label><span><?php echo $lead['email']; ?></span><br>
+    <label for="register-lead" >First Name: </label><span><?php echo $lead['firstname']; ?></span><br>
+    <label for="register-lead" >Last Name: </label><span><?php echo $lead['lastname']; ?></span><br>
+    <label for="register-lead" >Phone: </label><span><?php echo $lead['phone']; ?></span><br>
+    <label for="register-lead" >Address: </label><span><?php echo $lead['address']; ?></span><br>
+    <label for="register-lead" >Square Footage: </label><span><?php echo $lead['square_footage']; ?></span><br>
+</div>
+
+<div id="div1"></div>
+
+<script></script>
