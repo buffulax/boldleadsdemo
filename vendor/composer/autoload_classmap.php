@@ -15,5 +15,7 @@ return array(
     'Example\\Controller\\Pages\\HomeController' => $baseDir . '/src/Controller/Pages/HomeController.php',
     'Example\\Controller\\Pages\\LeadController' => $baseDir . '/src/Controller/Pages/LeadController.php',
     'Example\\Database\\Connection' => $baseDir . '/src/Database/Connection.php',
+    'Example\\Model\\Leads\\Collection' => $baseDir . '/src/Model/Leads/Collection.php',
     'Example\\Model\\Leads\\Leads' => $baseDir . '/src/Model/Leads/Leads.php',
+    'Example\\Model\\Leads\\LeadsModel' => $baseDir . '/src/Model/Leads/LeadsModel.php',
 );

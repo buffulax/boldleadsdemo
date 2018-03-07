@@ -60,7 +60,9 @@ class ComposerStaticInit4b3ab50ce35e0bc041ef4213370bc6b0
         'Example\\Controller\\Pages\\HomeController' => __DIR__ . '/../..' . '/src/Controller/Pages/HomeController.php',
         'Example\\Controller\\Pages\\LeadController' => __DIR__ . '/../..' . '/src/Controller/Pages/LeadController.php',
         'Example\\Database\\Connection' => __DIR__ . '/../..' . '/src/Database/Connection.php',
+        'Example\\Model\\Leads\\Collection' => __DIR__ . '/../..' . '/src/Model/Leads/Collection.php',
         'Example\\Model\\Leads\\Leads' => __DIR__ . '/../..' . '/src/Model/Leads/Leads.php',
+        'Example\\Model\\Leads\\LeadsModel' => __DIR__ . '/../..' . '/src/Model/Leads/LeadsModel.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

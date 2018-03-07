@@ -12,24 +12,35 @@
         <th>EMAIL</th>
         <th>FIRST NAME</th>
         <th>LAST NAME</th>
+        <th>PHONE</th>
         <th>ADDRESS</th>
         <th>SQUARE FOOTAGE</th>
+        <th>STATUS</th>
         <th>MODIFIED AT</th>
         <th>CREATED AT</th>
     </tr>
 
-    <?php if ($block->getAllLeads()): ?>
-        <?php foreach ($block->getAllLeads() as $lead): ?>
+    <?php //var_dump($block->getAllLeads()); echo 'count: '. $block->getAllLeads()->count(); ?>
+
+    <?php if ($block->getAllLeads()->count()):
+
+        foreach ($block->getAllLeads() as $lead):
+            /**
+             * @var \Example\Model\Leads\LeadsModel $lead
+             */
+            ?>
             <tr>
-                <td><a href="index.php?controller=lead&action=home&id=<?=$lead['id']?>"><?php echo $lead['id']; ?></a></td>
-                <td><a href="index.php?controller=lead&action=home&id=<?=$lead['id']?>"><?php echo $lead['session_id']; ?></a></td>
-                <td><a href="index.php?controller=lead&action=home&id=<?=$lead['id']?>"><?php echo $lead['email']; ?></a></td>
-                <td><a href="index.php?controller=lead&action=home&id=<?=$lead['id']?>"><?php echo $lead['firstname']; ?></a></td>
-                <td><a href="index.php?controller=lead&action=home&id=<?=$lead['id']?>"><?php echo $lead['lastname']; ?></a></td>
-                <td><a href="index.php?controller=lead&action=home&id=<?=$lead['id']?>"><?php echo $lead['address']; ?></a></td>
-                <td><a href="index.php?controller=lead&action=home&id=<?=$lead['id']?>"><?php echo $lead['square_footage']; ?></a></td>
-                <td><a href="index.php?controller=lead&action=home&id=<?=$lead['id']?>"><?php echo $lead['updated_at']; ?></a></td>
-                <td><a href="index.php?controller=lead&action=home&id=<?=$lead['id']?>"><?php echo $lead['created_at']; ?></a></td>
+                <td><a href="index.php?controller=lead&action=home&id=<?=$lead->getId();?>"><?php echo $lead->getId(); ?></a></td>
+                <td><a href="index.php?controller=lead&action=home&id=<?=$lead->getId();?>"><?php echo $lead->getSessionId(); ?></a></td>
+                <td><a href="index.php?controller=lead&action=home&id=<?=$lead->getId();?>"><?php echo $lead->getEmail(); ?></a></td>
+                <td><a href="index.php?controller=lead&action=home&id=<?=$lead->getId();?>"><?php echo $lead->getFirstname(); ?></a></td>
+                <td><a href="index.php?controller=lead&action=home&id=<?=$lead->getId();?>"><?php echo $lead->getLastname(); ?></a></td>
+                <td><a href="index.php?controller=lead&action=home&id=<?=$lead->getId();?>"><?php echo $lead->getPhone(); ?></a></td>
+                <td><a href="index.php?controller=lead&action=home&id=<?=$lead->getId();?>"><?php echo $lead->getAddress(); ?></a></td>
+                <td><a href="index.php?controller=lead&action=home&id=<?=$lead->getId();?>"><?php echo $lead->getSquareFootage(); ?></a></td>
+                <td><a href="index.php?controller=lead&action=home&id=<?=$lead->getId();?>"><?php echo $lead->getStatus(); ?></a></td>
+                <td><a href="index.php?controller=lead&action=home&id=<?=$lead->getId();?>"><?php echo $lead->getUpdatedAt(); ?></a></td>
+                <td><a href="index.php?controller=lead&action=home&id=<?=$lead->getId();?>"><?php echo $lead->getCreatedAt(); ?></a></td>
             </tr>
         <?php endforeach; ?>
     <?php else: ?>
@@ -40,7 +51,7 @@
 
 </table>
 
-<div id="div1"><?php //echo json_encode($block->getAllLeads()); ?></div>
+<div id="div1"><?php //echo json_encode($block->getAllLeads()->toArray()); ?></div>
 
 <script>
 

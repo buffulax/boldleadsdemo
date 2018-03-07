@@ -122,9 +122,7 @@ class Leads
     }
 
     /**
-     * @function getLeads
-     *
-     * @return array
+     * @return Collection
      */
     public function getLeads()
     {
@@ -134,7 +132,34 @@ class Leads
 
         $results = $query->fetchAll(\PDO::FETCH_ASSOC);
 
-        return $results;
+        $collection = new \Example\Model\Leads\Collection();
+
+        $lead = null;
+
+        foreach ($results as $result):
+
+            $lead = new \Example\Model\Leads\LeadsModel();
+            $lead->setId($result['id'])
+                ->setSessionId($result['session_id'])
+                ->setEmail($result['email'])
+                ->setFirstname($result['firstname'])
+                ->setLastname($result['lastname'])
+                ->setPhone($result['phone'])
+                ->setAddress($result['address'])
+                ->setSquareFootage($result['square_footage'])
+                ->setStatus($result['status'])
+                ->setCreatedAt($result['created_at'])
+                ->setUpdatedAt($result['updated_at']);
+
+            $collection->setObjectArray($lead);
+
+            $collection->next();
+
+        endforeach;
+
+        //$collection->setKey(0);
+
+        return $collection;
     }
 
 }
