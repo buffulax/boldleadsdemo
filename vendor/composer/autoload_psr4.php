@@ -6,11 +6,20 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Symfony\\Polyfill\\Util\\' => array($vendorDir . '/symfony/polyfill-util'),
+    'Symfony\\Polyfill\\Php56\\' => array($vendorDir . '/symfony/polyfill-php56'),
+    'SuperClosure\\' => array($vendorDir . '/jeremeamia/SuperClosure/src'),
+    'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
+    'PhpParser\\' => array($vendorDir . '/nikic/php-parser/lib/PhpParser'),
+    'PhpDocReader\\' => array($vendorDir . '/php-di/phpdoc-reader/src/PhpDocReader'),
+    'Invoker\\' => array($vendorDir . '/php-di/invoker/src'),
     'Example\\Model\\Leads\\' => array($baseDir . '/src/Model/Leads'),
+    'Example\\Model\\Framework\\' => array($baseDir . '/src/Model/Framework'),
     'Example\\Database\\' => array($baseDir . '/src/Database'),
     'Example\\Controller\\Pages\\' => array($baseDir . '/src/Controller/Pages'),
     'Example\\Controller\\Framework\\' => array($baseDir . '/src/Controller/Framework'),
     'Example\\Controller\\Api\\' => array($baseDir . '/src/Controller/Api'),
     'Example\\Block\\Pages\\' => array($baseDir . '/src/Block/Pages'),
     'Example\\' => array($baseDir . '/src'),
+    'DI\\' => array($vendorDir . '/php-di/php-di/src'),
 );

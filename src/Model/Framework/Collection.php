@@ -5,14 +5,15 @@
  * Date: 3/6/18
  * Time: 3:46 PM
  */
-namespace Example\Model\Leads;
+namespace Example\Model\Framework;
 
 /**
  * Class Collection
  * @package Example\Model\Leads
  */
-class Collection implements \Iterator, \Countable
+class Collection implements \Iterator, \Countable, ToArray
 {
+    /** @var array $objectArray */
     private $objectArray = [];
 
     public function rewind()
@@ -66,6 +67,9 @@ class Collection implements \Iterator, \Countable
         $this->objectArray[] = $object;
     }
 
+    /**
+     * @return array
+     */
     public function toArray()
     {
         $arr = [];
@@ -77,5 +81,17 @@ class Collection implements \Iterator, \Countable
         endforeach;
 
         return $arr;
+    }
+
+    /**
+     * @return mixed|null
+     */
+    public function getFirstItem()
+    {
+        if ($this->count()):
+            return $this->objectArray[0];
+        else:
+            return null;
+        endif;
     }
 }

@@ -2,25 +2,41 @@
 
 function call($controller, $action) {
 
-    //echo $controller . ' - ' . $action;
+    //$container = new \DI\Container();
 
-    // create a new instance of the needed controller
-    switch($controller) {
-        case 'pages':
-            $controller = new \Example\Controller\Pages\HomeController();
-            break;
-        case 'leads':
-            $controller = new \Example\Controller\Api\LeadsController();
-            break;
-        case 'dashboard':
-            $controller = new \Example\Controller\Pages\DashboardController();
-            break;
-        case 'lead':
-            $controller = new \Example\Controller\Pages\LeadController();
-            break;
+    $builder = new \DI\ContainerBuilder();
+    $builder->addDefinitions([
+        'PDO' => new \PDO('mysql:host=localhost;dbname=webdata', 'webuser', 'password', [\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION])
+    ]);
 
+    try {
+        $container = $builder->build();
+    } catch (\Exception $exception) {
+        $container = new \DI\Container();
     }
 
+    try {
+        // Get the instance of the needed controller from the DI Container
+        switch ($controller) {
+            case 'pages':
+                $controller = $container->get('\Example\Controller\Pages\HomeController');
+                break;
+            case 'leads':
+                $controller = $container->get('Example\Controller\Api\LeadsController');
+                break;
+            case 'dashboard':
+                $controller = $container->get('\Example\Controller\Pages\DashboardController');
+                break;
+            case 'lead':
+                $controller = $container->get('\Example\Controller\Pages\LeadController');
+                break;
+
+        }
+    } catch (\Exception $exception) {
+        $block = new \Example\Block\Pages\HomeBlock();
+        $controller = new \Example\Controller\Pages\HomeController($block);
+        $action = 'error';
+    }
 
     // call the action
     $controller->{ $action }();

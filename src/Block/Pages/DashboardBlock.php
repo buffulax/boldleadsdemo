@@ -7,7 +7,8 @@
  */
 namespace Example\Block\Pages;
 
-use \Example\Model\Leads\Leads;
+use \Example\Model\Framework\Collection;
+use \Example\Model\Leads\LeadsGateway;
 
 /**
  * Class DashboardBlock
@@ -15,27 +16,39 @@ use \Example\Model\Leads\Leads;
  */
 class DashboardBlock {
 
+    /** @var string $title */
     private $title = 'Dashboard';
 
-    /** @var Leads $leads */
-    private $leads;
+    /** @var LeadsGateway $leadsGateway */
+    private $leadsGateway;
 
-    private $all_leads = null;
+    /** @var Collection $leads */
+    private $all_leads;
 
-    public function __construct()
+    /**
+     * DashboardBlock constructor.
+     */
+    public function __construct(LeadsGateway $gateway)
     {
-        $this->leads = new Leads();
+        $this->leadsGateway = $gateway;
+        //$this->leadsGateway = new LeadsGateway();
     }
 
+    /**
+     * @return string
+     */
     public function getTitle()
     {
         return $this->title;
     }
 
+    /**
+     * @return Collection
+     */
     public function getAllLeads()
     {
         if (is_null($this->all_leads)) {
-            $this->all_leads = $this->leads->getLeads();
+            $this->all_leads = $this->leadsGateway->getLeads();
         }
 
         return $this->all_leads;

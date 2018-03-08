@@ -8,13 +8,12 @@ namespace Example\Block\Pages;
  */
 class HomeBlock {
 
+    /** @var string $title */
     private $title = 'Contact Us';
 
-    public function __construct()
-    {
-
-    }
-
+    /**
+     * @return string
+     */
     public function getTitle()
     {
         return $this->title;

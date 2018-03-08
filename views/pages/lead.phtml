@@ -3,17 +3,18 @@
  * @var \Example\Block\Pages\LeadBlock $block
  */
 
+/** @var \Example\Model\Leads\LeadsModel $lead */
 $lead = $block->getLead();
 ?>
 <h1><?php echo $block->getTitle(); ?></h1>
 
 <div class="lead-div">
-    <label for="register-lead" >Email: </label><span><?php echo $lead['email']; ?></span><br>
-    <label for="register-lead" >First Name: </label><span><?php echo $lead['firstname']; ?></span><br>
-    <label for="register-lead" >Last Name: </label><span><?php echo $lead['lastname']; ?></span><br>
-    <label for="register-lead" >Phone: </label><span><?php echo $lead['phone']; ?></span><br>
-    <label for="register-lead" >Address: </label><span><?php echo $lead['address']; ?></span><br>
-    <label for="register-lead" >Square Footage: </label><span><?php echo $lead['square_footage']; ?></span><br>
+    <label for="register-lead" >Email: </label><span><?php echo $lead->getEmail(); ?></span><br>
+    <label for="register-lead" >First Name: </label><span><?php echo $lead->getFirstname(); ?></span><br>
+    <label for="register-lead" >Last Name: </label><span><?php echo $lead->getLastname(); ?></span><br>
+    <label for="register-lead" >Phone: </label><span><?php echo $lead->getPhone(); ?></span><br>
+    <label for="register-lead" >Address: </label><span><?php echo $lead->getAddress(); ?></span><br>
+    <label for="register-lead" >Square Footage: </label><span><?php echo $lead->getSquareFootage(); ?></span><br>
 </div>
 
 <div id="div1"></div>

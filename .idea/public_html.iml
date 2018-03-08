@@ -8,8 +8,17 @@
       <sourceFolder url="file://$MODULE_DIR$/src/Controller/Api" isTestSource="false" packagePrefix="Example\Controller\Api\" />
       <sourceFolder url="file://$MODULE_DIR$/src/Database" isTestSource="false" packagePrefix="Example\Database\" />
       <sourceFolder url="file://$MODULE_DIR$/src/Controller/Framework" isTestSource="false" packagePrefix="Example\Controller\Framework\" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Model/Framework" isTestSource="false" packagePrefix="Example\Model\Framework\" />
       <sourceFolder url="file://$MODULE_DIR$/src/Controller/Pages" isTestSource="false" packagePrefix="Example\Controller\Pages\" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/jeremeamia/SuperClosure" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/nikic/php-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/php-di/invoker" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/php-di/php-di" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/php-di/phpdoc-reader" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/container" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php56" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-util" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

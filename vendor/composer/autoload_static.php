@@ -6,10 +6,32 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit4b3ab50ce35e0bc041ef4213370bc6b0
 {
+    public static $files = array (
+        'bd9634f2d41831496de0d3dfe4c94881' => __DIR__ . '/..' . '/symfony/polyfill-php56/bootstrap.php',
+        'b33e3d135e5d9e47d845c576147bda89' => __DIR__ . '/..' . '/php-di/php-di/src/functions.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
+        'S' => 
+        array (
+            'Symfony\\Polyfill\\Util\\' => 22,
+            'Symfony\\Polyfill\\Php56\\' => 23,
+            'SuperClosure\\' => 13,
+        ),
+        'P' => 
+        array (
+            'Psr\\Container\\' => 14,
+            'PhpParser\\' => 10,
+            'PhpDocReader\\' => 13,
+        ),
+        'I' => 
+        array (
+            'Invoker\\' => 8,
+        ),
         'E' => 
         array (
             'Example\\Model\\Leads\\' => 20,
+            'Example\\Model\\Framework\\' => 24,
             'Example\\Database\\' => 17,
             'Example\\Controller\\Pages\\' => 25,
             'Example\\Controller\\Framework\\' => 29,
@@ -17,12 +39,48 @@ class ComposerStaticInit4b3ab50ce35e0bc041ef4213370bc6b0
             'Example\\Block\\Pages\\' => 20,
             'Example\\' => 8,
         ),
+        'D' => 
+        array (
+            'DI\\' => 3,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'Symfony\\Polyfill\\Util\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-util',
+        ),
+        'Symfony\\Polyfill\\Php56\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-php56',
+        ),
+        'SuperClosure\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jeremeamia/SuperClosure/src',
+        ),
+        'Psr\\Container\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
+        'PhpParser\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
+        ),
+        'PhpDocReader\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-di/phpdoc-reader/src/PhpDocReader',
+        ),
+        'Invoker\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-di/invoker/src',
+        ),
         'Example\\Model\\Leads\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src/Model/Leads',
+        ),
+        'Example\\Model\\Framework\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Model/Framework',
         ),
         'Example\\Database\\' => 
         array (
@@ -48,21 +106,10 @@ class ComposerStaticInit4b3ab50ce35e0bc041ef4213370bc6b0
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
-    );
-
-    public static $classMap = array (
-        'Example\\Block\\Pages\\DashboardBlock' => __DIR__ . '/../..' . '/src/Block/Pages/DashboardBlock.php',
-        'Example\\Block\\Pages\\HomeBlock' => __DIR__ . '/../..' . '/src/Block/Pages/HomeBlock.php',
-        'Example\\Block\\Pages\\LeadBlock' => __DIR__ . '/../..' . '/src/Block/Pages/LeadBlock.php',
-        'Example\\Controller\\Api\\LeadsController' => __DIR__ . '/../..' . '/src/Controller/Api/LeadsController.php',
-        'Example\\Controller\\Framework\\AbstractPageController' => __DIR__ . '/../..' . '/src/Controller/Framework/AbstractPageController.php',
-        'Example\\Controller\\Pages\\DashboardController' => __DIR__ . '/../..' . '/src/Controller/Pages/DashboardController.php',
-        'Example\\Controller\\Pages\\HomeController' => __DIR__ . '/../..' . '/src/Controller/Pages/HomeController.php',
-        'Example\\Controller\\Pages\\LeadController' => __DIR__ . '/../..' . '/src/Controller/Pages/LeadController.php',
-        'Example\\Database\\Connection' => __DIR__ . '/../..' . '/src/Database/Connection.php',
-        'Example\\Model\\Leads\\Collection' => __DIR__ . '/../..' . '/src/Model/Leads/Collection.php',
-        'Example\\Model\\Leads\\Leads' => __DIR__ . '/../..' . '/src/Model/Leads/Leads.php',
-        'Example\\Model\\Leads\\LeadsModel' => __DIR__ . '/../..' . '/src/Model/Leads/LeadsModel.php',
+        'DI\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-di/php-di/src',
+        ),
     );
 
     public static function getInitializer(ClassLoader $loader)
@@ -70,7 +117,6 @@ class ComposerStaticInit4b3ab50ce35e0bc041ef4213370bc6b0
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit4b3ab50ce35e0bc041ef4213370bc6b0::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit4b3ab50ce35e0bc041ef4213370bc6b0::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit4b3ab50ce35e0bc041ef4213370bc6b0::$classMap;
 
         }, null, ClassLoader::class);
     }

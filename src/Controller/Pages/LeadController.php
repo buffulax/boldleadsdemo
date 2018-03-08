@@ -17,9 +17,9 @@ class LeadController extends AbstractPageController {
     /**
      * LeadController constructor.
      */
-    public function __construct()
+    public function __construct(\Example\Block\Pages\LeadBlock $block)
     {
-        $this->block = new LeadBlock();
+        $this->block = $block; //new LeadBlock();
     }
 
     /**

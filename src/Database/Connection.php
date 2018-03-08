@@ -18,4 +18,3 @@ namespace Example\Database;
       return self::$instance;
     }
   }
-?>

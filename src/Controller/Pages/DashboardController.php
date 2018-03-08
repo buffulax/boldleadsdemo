@@ -17,9 +17,9 @@ class DashboardController extends AbstractPageController {
     /**
      * HomeController constructor.
      */
-    public function __construct()
+    public function __construct(\Example\Block\Pages\DashboardBlock $block)
     {
-        $this->block = new DashboardBlock();
+        $this->block = $block;
     }
 
     /**

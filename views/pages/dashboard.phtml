@@ -45,13 +45,13 @@
         <?php endforeach; ?>
     <?php else: ?>
         <tr>
-            <td colspan="9">No Leads</td>
+            <td colspan="11">No Leads</td>
         </tr>
     <?php endif; ?>
 
 </table>
 
-<div id="div1"><?php //echo json_encode($block->getAllLeads()->toArray()); ?></div>
+<div id="div1"><?php echo json_encode($block->getAllLeads()->toArray()); ?></div>
 
 <script>
 

@@ -13,11 +13,3 @@ if (isset($_GET['controller']) && isset($_GET['action'])) {
 }
 
 require_once('../../router/routes.php');
-//print_r($_SESSION);
-//die();
-
-//ob_start();
-//$output = ob_get_contents();
-//ob_clean();
-//$output = session_id();
-//echo $output;

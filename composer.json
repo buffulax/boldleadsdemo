@@ -7,7 +7,11 @@
         	"Example\\Controller\\Framework\\" : "src/Controller/Framework",
 			"Example\\Block\\Pages\\" : "src/Block/Pages",
 			"Example\\Controller\\Api\\" : "src/Controller/Api",
-			"Example\\Model\\Leads\\" : "src/Model/Leads"
+			"Example\\Model\\Leads\\" : "src/Model/Leads",
+			"Example\\Model\\Framework\\" : "src/Model/Framework"
     	}
+	},
+	"require": {
+		"php-di/php-di": "^6.0"
 	}
 }

@@ -2,36 +2,37 @@
 
 namespace Example\Controller\Api;
 
+use \Example\Model\Leads\LeadsModel;
+
 /**
  * Class LeadsController
  */
 class LeadsController {
 
-    /** @var \Example\Model\Leads\Leads $leads */
-    private $leads;
+    /** @var \Example\Model\Leads\LeadsGateway $leadsGateway */
+    private $leadsGateway;
 
     /**
      * LeadsController constructor.
+     * @param \Example\Model\Leads\LeadsGateway $gateway
      */
-    public function __construct()
+    public function __construct(\Example\Model\Leads\LeadsGateway $gateway)
     {
-        $this->leads = new \Example\Model\Leads\Leads();
+        $this->leadsGateway = $gateway;
     }
 
     /**
-     * @function get
-     *
-     * @return array
+     * @function get Action
      */
     public function get() {
 
-        $results = $this->leads->getLeads();
+        $leadsCollection = $this->leadsGateway->getLeads();
 
-        return $results;
+        echo json_encode($leadsCollection->toArray());
     }
 
     /**
-     * @function create
+     * @function create Action
      *
      * @return void
      */
@@ -43,28 +44,38 @@ class LeadsController {
         ];
 
         $session_id = session_id();
-        $email = $_POST['email'];
-        $firstName = $_POST['firstname'];
-        $lastName = $_POST['lastname'];
-        $phone = $_POST['phone'];
-        $address = $_POST['address'];
-        $square_footage = $_POST['square_footage'];
 
-        $lead = $this->leads->getLeadBySessionId(session_id());
+        $email = isset($_POST['email']) ? $_POST['email'] : '';
+        $firstName = isset($_POST['firstname']) ? $_POST['firstname'] : '';
+        $lastName = isset($_POST['lastname']) ? $_POST['lastname'] : '';
+        $phone = isset($_POST['phone']) ? $_POST['phone'] : '';
+        $address = isset($_POST['address']) ? $_POST['address'] : '';
+        $square_footage = isset($_POST['square_footage']) ? $_POST['square_footage'] : '';
 
-        try {
-            if (count($lead) > 0){
-                $this->leads->updateLeadBySessionId($session_id, $email, $firstName, $lastName, $phone, $address, $square_footage);
-            } else {
-                $this->leads->insertLead($session_id, $email, $firstName, $lastName, $phone, $address, $square_footage);
-            }
+        $lead = $this->leadsGateway->getLeadsBySessionId($session_id)->getFirstItem();
 
-            $result['success'] = true;
-        } catch (\Exception $exception) {
-            $result['message'] = $exception->getMessage();
+        if (is_null($lead)){
+            $lead = new LeadsModel();
         }
 
-        $result['all_data'] = $this->leads->getLeadBySessionId($session_id);
+        $lead->setSessionId($session_id)
+            ->setEmail($email)
+            ->setFirstname($firstName)
+            ->setLastname($lastName)
+            ->setPhone($phone)
+            ->setAddress($address)
+            ->setSquareFootage($square_footage);
+
+        try {
+
+            $updatedLead = $this->leadsGateway->saveLead($lead);
+
+            $result['return_data'] = $updatedLead->toArray();
+            $result['success'] = true;
+
+        } catch (\Exception $exception) {
+            $result['message'] = 'Error Getting Records: '.$exception->getMessage();
+        }
 
         echo json_encode($result);
     }

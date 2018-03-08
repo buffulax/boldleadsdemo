@@ -8,11 +8,13 @@
 
 namespace Example\Model\Leads;
 
+use \Example\Model\Framework\ToArray;
+
 /**
  * Class LeadsModel
  * @package Example\Model\Leads
  */
-class LeadsModel
+class LeadsModel implements ToArray
 {
     const ID = 'id';                            private $id;
     const SESSION_ID = 'session_id';            private $session_id;
@@ -30,7 +32,6 @@ class LeadsModel
     /** *************************************** **/
     /**                 GETTERS                 **/
     /** *************************************** **/
-
 
     /**
      * @return mixed

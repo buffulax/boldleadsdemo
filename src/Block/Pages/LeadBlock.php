@@ -7,7 +7,7 @@
  */
 namespace Example\Block\Pages;
 
-use \Example\Model\Leads\Leads;
+use \Example\Model\Leads\LeadsGateway;
 
 /**
  * Class LeadBlock
@@ -15,31 +15,40 @@ use \Example\Model\Leads\Leads;
  */
 class LeadBlock
 {
-
+    /** @var string $title */
     private $title = 'View Lead';
 
-    /** @var Leads $leads */
-    private $leads;
+    /** @var LeadsGateway $leadsGateway */
+    private $leadsGateway;
 
-    private $all_leads = null;
-    private $single_lead = null;
+    /** @var $single_lead */
+    private $single_lead;
 
-    public function __construct()
+    /**
+     * LeadBlock constructor.
+     */
+    public function __construct(\Example\Model\Leads\LeadsGateway $gateway)
     {
-        $this->leads = new Leads();
+        $this->leadsGateway = $gateway;
     }
 
+    /**
+     * @return string
+     */
     public function getTitle()
     {
         return $this->title;
     }
 
+    /**
+     * @return \Example\Model\Leads\LeadsModel
+     */
     public function getLead()
     {
         $id = isset($_GET['id']) ? $_GET['id'] : 1;
 
         try {
-            $this->single_lead = $this->leads->getLeadById($id);
+            $this->single_lead = $this->leadsGateway->getLeadById($id);
         } catch (\Exception $exception) {
 
         }
