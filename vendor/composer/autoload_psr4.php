@@ -13,6 +13,7 @@ return array(
     'PhpParser\\' => array($vendorDir . '/nikic/php-parser/lib/PhpParser'),
     'PhpDocReader\\' => array($vendorDir . '/php-di/phpdoc-reader/src/PhpDocReader'),
     'Invoker\\' => array($vendorDir . '/php-di/invoker/src'),
+    'Example\\Utility\\' => array($baseDir . '/src/Utility'),
     'Example\\Model\\Leads\\' => array($baseDir . '/src/Model/Leads'),
     'Example\\Model\\Framework\\' => array($baseDir . '/src/Model/Framework'),
     'Example\\Database\\' => array($baseDir . '/src/Database'),

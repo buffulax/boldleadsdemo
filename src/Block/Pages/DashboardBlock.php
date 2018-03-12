@@ -22,16 +22,27 @@ class DashboardBlock {
     /** @var LeadsGateway $leadsGateway */
     private $leadsGateway;
 
+    /** @var \Example\Utility\Pagination $pagination */
+    private $pagination;
+
     /** @var Collection $leads */
     private $all_leads;
 
+    /** @var Collection $paged_leads */
+    private $paged_leads;
+
     /**
      * DashboardBlock constructor.
+     *
+     * @param LeadsGateway $gateway
+     * @param \Example\Utility\Pagination $pagination
      */
-    public function __construct(LeadsGateway $gateway)
-    {
+    public function __construct(
+        LeadsGateway $gateway,
+        \Example\Utility\Pagination $pagination
+    ) {
         $this->leadsGateway = $gateway;
-        //$this->leadsGateway = new LeadsGateway();
+        $this->pagination = $pagination;
     }
 
     /**
@@ -52,5 +63,39 @@ class DashboardBlock {
         }
 
         return $this->all_leads;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getPagedLeads()
+    {
+        $this->getAllLeads();
+
+        if (is_null($this->paged_leads)) {
+
+            $this->paged_leads = $this->setPagination()->getPagedCollection();
+        }
+
+        return $this->paged_leads;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getNumberOfPages()
+    {
+        return $this->setPagination()->getNumberOfPages();
+    }
+
+    /**
+     * @return \Example\Utility\Pagination
+     */
+    public function setPagination()
+    {
+        $page_size = (isset($_GET['ps'])) ? $_GET['ps'] : 10;
+        $page = (isset($_GET['p'])) ? $_GET['p'] : 1;
+
+        return $this->pagination->setPageSize($page_size)->setPage($page)->setCollection($this->getAllLeads());
     }
 }

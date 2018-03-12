@@ -8,7 +8,8 @@
 			"Example\\Block\\Pages\\" : "src/Block/Pages",
 			"Example\\Controller\\Api\\" : "src/Controller/Api",
 			"Example\\Model\\Leads\\" : "src/Model/Leads",
-			"Example\\Model\\Framework\\" : "src/Model/Framework"
+			"Example\\Model\\Framework\\" : "src/Model/Framework",
+			"Example\\Utility\\" : "src/Utility"
     	}
 	},
 	"require": {

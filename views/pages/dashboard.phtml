@@ -20,11 +20,9 @@
         <th>CREATED AT</th>
     </tr>
 
-    <?php //var_dump($block->getAllLeads()); echo 'count: '. $block->getAllLeads()->count(); ?>
-
     <?php if ($block->getAllLeads()->count()):
 
-        foreach ($block->getAllLeads() as $lead):
+        foreach ($block->getPagedLeads() as $lead):
             /**
              * @var \Example\Model\Leads\LeadsModel $lead
              */
@@ -50,6 +48,27 @@
     <?php endif; ?>
 
 </table>
+
+<?php
+
+    $numberOfPages = $block->getNumberOfPages();
+
+    ?>
+
+<?php if ($numberOfPages > 1) :?>
+    <label></label>
+    <ul>
+        <?php if ($block->setPagination()->getPage() > 1): ?>
+            <li><a href="index.php?controller=dashboard&action=home&ps=<?php echo $block->setPagination()->getPageSize(); ?>&p=<?php echo $block->setPagination()->getPage()-1; ?>">PREV</a></li>
+        <?php endif; ?>
+        <?php for ($x = 1; $x <= $numberOfPages; $x++): ?>
+        <li><a href="index.php?controller=dashboard&action=home&ps=<?php echo $block->setPagination()->getPageSize(); ?>&p=<?php echo $x; ?>"><?php echo $x; ?></a></li>
+        <?php endfor; ?>
+        <?php if ($block->setPagination()->getPage() < $numberOfPages): ?>
+            <li><a href="index.php?controller=dashboard&action=home&ps=<?php echo $block->setPagination()->getPageSize(); ?>&p=<?php echo $block->setPagination()->getPage()+1; ?>">NEXT</a></li>
+        <?php endif; ?>
+    </ul>
+<?php endif; ?>
 
 <div id="div1"><?php echo json_encode($block->getAllLeads()->toArray()); ?></div>
 

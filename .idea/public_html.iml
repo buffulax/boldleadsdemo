@@ -10,6 +10,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/Controller/Framework" isTestSource="false" packagePrefix="Example\Controller\Framework\" />
       <sourceFolder url="file://$MODULE_DIR$/src/Model/Framework" isTestSource="false" packagePrefix="Example\Model\Framework\" />
       <sourceFolder url="file://$MODULE_DIR$/src/Controller/Pages" isTestSource="false" packagePrefix="Example\Controller\Pages\" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Utility" isTestSource="false" packagePrefix="Example\Utility\" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/jeremeamia/SuperClosure" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/nikic/php-parser" />

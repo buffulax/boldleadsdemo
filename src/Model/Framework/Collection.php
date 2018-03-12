@@ -94,4 +94,17 @@ class Collection implements \Iterator, \Countable, ToArray
             return null;
         endif;
     }
+
+    /**
+     * @param $key
+     * @return mixed|null
+     */
+    public function getItemByKey($key)
+    {
+        if ($key < $this->count()):
+            return $this->objectArray[$key];
+        else:
+            return null;
+        endif;
+    }
 }
