@@ -8,6 +8,8 @@
 
 namespace Example\Utility;
 
+use \Example\Model\Framework\Collection;
+
 /**
  * Class Pagination
  * @package Example\Utility
@@ -17,15 +19,19 @@ class Pagination
     /** @var \Example\Model\Framework\CollectionFactory $collectionFactory */
     private $collectionFactory;
 
+    /** @var int $page_size */
     private $page_size = 10;
 
+    /** @var int $page */
     private $page = 1;
 
+    /** @var Collection $collection */
     private $collection;
 
 
     /**
      * Pagination constructor.
+     *
      * @param \Example\Model\Framework\CollectionFactory $collectionFactory
      */
     public function __construct(\Example\Model\Framework\CollectionFactory $collectionFactory)
@@ -70,6 +76,7 @@ class Pagination
     {
         $count = $this->collection->count();
 
+        /** @var Collection $pagedCollection */
         $pagedCollection = $this->collectionFactory->create();
 
         for ($x = (($this->page_size * $this->page) - $this->page_size); $x <= (($this->page_size * $this->page) - 1); $x++) {
@@ -79,7 +86,6 @@ class Pagination
             else:
                 continue;
             endif;
-
         }
 
         return $pagedCollection;
@@ -87,7 +93,7 @@ class Pagination
     }
 
     /**
-     * @return float
+     * @return integer
      */
     public function getNumberOfPages()
     {

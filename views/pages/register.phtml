@@ -1,0 +1,41 @@
+<!--doctype = html-->
+
+<div class="register">
+    <h1>Register</h1>
+    <form id='register-form' action="/index.php?controller=dashboard&action=registeruser" method="post">
+        First Name: <input type="text" name="firstname" /><br />
+        Last Name: <input type="text" name="lastname" /><br />
+        Email: <input type="email" name="email" /><br />
+        Password: <input type="password" name="password" /><br />
+        <input type="submit" value="Submit">
+    </form>
+    <span>Click <a href="javascript:void(0)" id="show-login">here</a> to login</span>
+</div>
+
+<div class="login">
+    <h1>Login</h1>
+    <form id='register-form' action="/index.php?controller=dashboard&action=loginuser" method="post">
+        Email: <input type="email" name="email" /><br />
+        Password: <input type="password" name="password" /><br />
+        <input type="submit" value="Submit">
+    </form>
+    <span>Click <a href="javascript:void(0)" id="show-register">here</a> to register</span>
+</div>
+
+<script>
+
+    $( document ).ready(function() {
+        $('.register').hide();
+    });
+
+    $('#show-register').on('click', function () {
+        $('.login').hide();
+        $('.register').show();
+    });
+
+    $('#show-login').on('click', function () {
+        $('.login').show();
+        $('.register').hide();
+    });
+
+</script>

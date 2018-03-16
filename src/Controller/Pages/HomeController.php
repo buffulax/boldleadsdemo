@@ -16,10 +16,11 @@ class HomeController extends AbstractPageController {
 
     /**
      * HomeController constructor.
+     * @param HomeBlock $block
      */
     public function __construct(\Example\Block\Pages\HomeBlock $block)
     {
-        $this->block = $block; //new HomeBlock();
+        $this->block = $block;
     }
 
     /**

@@ -1,19 +1,23 @@
 <?php
 
-function call($controller, $action) {
+function call($controller, $action, $container) {
 
     //$container = new \DI\Container();
 
-    $builder = new \DI\ContainerBuilder();
-    $builder->addDefinitions([
-        'PDO' => new \PDO('mysql:host=localhost;dbname=webdata', 'webuser', 'password', [\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION])
-    ]);
+//    $builder = new \DI\ContainerBuilder();
+//    $builder->addDefinitions([
+//        'PDO' => \Example\Database\Connection::getInstance()//DI\factory('Namespace\To\FooFactory::create'),
+//        //'PDO' => new \PDO('mysql:host=localhost;dbname=webdata', 'webuser', 'password', [\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION])
+//    ]);
+//
+//    try {
+//        /** @var \DI\Container $container */
+//        $container = $builder->build();
+//    } catch (\Exception $exception) {
+//        $container = new \DI\Container();
+//    }
 
-    try {
-        $container = $builder->build();
-    } catch (\Exception $exception) {
-        $container = new \DI\Container();
-    }
+    /** @var \DI\Container $container */
 
     try {
         // Get the instance of the needed controller from the DI Container
@@ -47,7 +51,7 @@ function call($controller, $action) {
 $controllers =
     [
         'pages' => ['home', 'error'],
-        'dashboard' => ['home', 'error'],
+        'dashboard' => ['home', 'error', 'register', 'registeruser', 'loginuser', 'logoutuser'],
         'lead' => ['home', 'error'],
         'leads' => ['get', 'create']
     ];
@@ -56,10 +60,10 @@ $controllers =
 // if someone tries to access something else he will be redirected to the error action of the pages controller
 if (array_key_exists($controller, $controllers)) {
     if (in_array($action, $controllers[$controller])) {
-        call($controller, $action);
+        call($controller, $action, $container);
     } else {
-        call('pages', 'error');
+        call('pages', 'error', $container);
     }
 } else {
-    call('pages', 'error');
+    call('pages', 'error', $container);
 }

@@ -14,6 +14,7 @@ class LeadsController {
 
     /**
      * LeadsController constructor.
+     *
      * @param \Example\Model\Leads\LeadsGateway $gateway
      */
     public function __construct(\Example\Model\Leads\LeadsGateway $gateway)
@@ -52,6 +53,7 @@ class LeadsController {
         $address = isset($_POST['address']) ? $_POST['address'] : '';
         $square_footage = isset($_POST['square_footage']) ? $_POST['square_footage'] : '';
 
+        /** @var LeadsModel $lead */
         $lead = $this->leadsGateway->getLeadsBySessionId($session_id)->getFirstItem();
 
         if (is_null($lead)){

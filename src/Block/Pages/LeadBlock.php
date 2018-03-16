@@ -26,6 +26,8 @@ class LeadBlock
 
     /**
      * LeadBlock constructor.
+     *
+     * @param LeadsGateway $gateway
      */
     public function __construct(\Example\Model\Leads\LeadsGateway $gateway)
     {

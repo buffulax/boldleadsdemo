@@ -19,7 +19,7 @@
           }
 
           header ul li {
-              width: 49%;
+              width: 32%;
               margin: 10px 0;
           }
 
@@ -33,12 +33,19 @@
               font-weight: bold;
           }
 
+          .messages {
+              color: white;
+              font-weight: 600;
+          }
+
           .messages .error {
+              padding: 10px;
               background-color: lightcoral;
           }
 
           .messages .success {
-              background-color: green;
+              padding: 10px;
+              background-color: seagreen;
           }
 
           #register-lead div {
@@ -54,33 +61,58 @@
           }
       </style>
   </head>
+
+  <?php
+  /** PHP-DI Dependency Injection Manager */
+  /** @var \DI\Container $container */
+
+  try {
+      /** @var \Example\Utility\UserSession $userSession */
+      $userSession = $container->get('\Example\Utility\UserSession');
+  } catch (\Exception $exception) {
+      $userSession = null;
+  }
+
+  try {
+      /** @var \Example\Utility\MessageManager $messageManager */
+      $messageManager = $container->get('\Example\Utility\MessageManager');
+  } catch (\Exception $exception) {
+      $messageManager = null;
+  }
+
+  ?>
+
   <body>
     <header>
         <ul>
-            <li><a href='/index.php'>Home</a></li>
-            <li><a href='/index.php?controller=dashboard&action=home'>Dashboard</a></li>
+            <li><a href='/?controller=pages&action=home''>Home</a></li>
+            <li><a href='/?controller=dashboard&action=home'>Dashboard</a></li>
+            <?php if (!is_null($userSession) && $userSession->getIsLoggedIn()): ?>
+                <li><a href='/?controller=dashboard&action=logoutuser'>Logout</a></li>
+            <?php else: ?>
+                <li><a href='/?controller=dashboard&action=register'>Login</a></li>
+            <?php endif; ?>
         </ul>
     </header>
 
-
-
     <div class="main">
-
         <div class="messages">
-            <?php if (isset($_SESSION['is_message'])) : ?>
-                <div class="<?php echo $_SESSION['type_message']; ?>"><?php echo $_SESSION['message']; ?></div>
+            <?php
+
+            if (!is_null($messageManager) && $messageManager->getNumberOfMessagesPending()):
+                foreach ($messageManager->getAllMessages() as $message):
+                ?>
+                <div class="<?php echo $message['type']; ?>"><?php echo $message['message']; ?></div>
                 <?php
-
-                unset($_SESSION['is_message']);
-                unset($_SESSION['type_message']);
-                unset($_SESSION['message']);
-
+                endforeach;
+                $messageManager->clearAllMessages();
             endif;
 
             ?>
         </div>
-
-        <?php require_once('./router/routes.php'); ?>
+        <div class="main-content">
+            <?php require_once('./router/routes.php'); ?>
+        </div>
     </div>
 
     <footer style="margin-top: 20px;">

@@ -34,9 +34,9 @@ class LeadsGateway
         \Example\Model\Framework\CollectionFactory $collectionFactory,
         \PDO $pdo
     ) {
-        $this->pdo = $pdo; //\Example\Database\Connection::getInstance();
-        $this->leadsFactory = $leadsFactory; //new \Example\Model\Leads\LeadsFactory();
-        $this->collectionFactory = $collectionFactory; //new \Example\Model\Framework\CollectionFactory();
+        $this->pdo = $pdo;
+        $this->leadsFactory = $leadsFactory;
+        $this->collectionFactory = $collectionFactory;
     }
 
     /**
@@ -230,7 +230,7 @@ class LeadsGateway
      */
     private function setCollection(array $results)
     {
-        $collection = new \Example\Model\Framework\Collection();
+        $collection = $this->collectionFactory->create(); //new \Example\Model\Framework\Collection();
 
         foreach ($results as $result):
 

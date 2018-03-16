@@ -3,9 +3,36 @@
  * @var \Example\Block\Pages\DashboardBlock $block
  */
 ?>
+
+<style>
+    .pagination-selector {
+        float: right;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+
+    .table {
+        width: 100%;
+    }
+
+    .pagination {
+        text-align: center;
+    }
+</style>
+
 <h1><?php echo $block->getTitle(); ?></h1>
 
-<table id="register-lead">
+<span class="pagination-selector">
+    <label>Results Per Page</label>
+    <select id="page-size">
+        <option value="1" <?php if ($block->setPagination()->getPageSize() == 1) echo 'selected="selected"'; ?>>1</option>
+        <option value="2" <?php if ($block->setPagination()->getPageSize() == 2) echo 'selected="selected"'; ?>>2</option>
+        <option value="10" <?php if ($block->setPagination()->getPageSize() == 10) echo 'selected="selected"'; ?>>10</option>
+        <option value="25" <?php if ($block->setPagination()->getPageSize() == 25) echo 'selected="selected"'; ?>>25</option>
+    </select>
+</span>
+
+<table id="table-leads" class="table">
     <tr>
         <th>ID</th>
         <th>SESSION ID</th>
@@ -28,17 +55,17 @@
              */
             ?>
             <tr>
-                <td><a href="index.php?controller=lead&action=home&id=<?=$lead->getId();?>"><?php echo $lead->getId(); ?></a></td>
-                <td><a href="index.php?controller=lead&action=home&id=<?=$lead->getId();?>"><?php echo $lead->getSessionId(); ?></a></td>
-                <td><a href="index.php?controller=lead&action=home&id=<?=$lead->getId();?>"><?php echo $lead->getEmail(); ?></a></td>
-                <td><a href="index.php?controller=lead&action=home&id=<?=$lead->getId();?>"><?php echo $lead->getFirstname(); ?></a></td>
-                <td><a href="index.php?controller=lead&action=home&id=<?=$lead->getId();?>"><?php echo $lead->getLastname(); ?></a></td>
-                <td><a href="index.php?controller=lead&action=home&id=<?=$lead->getId();?>"><?php echo $lead->getPhone(); ?></a></td>
-                <td><a href="index.php?controller=lead&action=home&id=<?=$lead->getId();?>"><?php echo $lead->getAddress(); ?></a></td>
-                <td><a href="index.php?controller=lead&action=home&id=<?=$lead->getId();?>"><?php echo $lead->getSquareFootage(); ?></a></td>
-                <td><a href="index.php?controller=lead&action=home&id=<?=$lead->getId();?>"><?php echo $lead->getStatus(); ?></a></td>
-                <td><a href="index.php?controller=lead&action=home&id=<?=$lead->getId();?>"><?php echo $lead->getUpdatedAt(); ?></a></td>
-                <td><a href="index.php?controller=lead&action=home&id=<?=$lead->getId();?>"><?php echo $lead->getCreatedAt(); ?></a></td>
+                <td><a href="/?controller=lead&action=home&id=<?=$lead->getId();?>"><?php echo $lead->getId(); ?></a></td>
+                <td><a href="/?controller=lead&action=home&id=<?=$lead->getId();?>"><?php echo $lead->getSessionId(); ?></a></td>
+                <td><a href="/?controller=lead&action=home&id=<?=$lead->getId();?>"><?php echo $lead->getEmail(); ?></a></td>
+                <td><a href="/?controller=lead&action=home&id=<?=$lead->getId();?>"><?php echo $lead->getFirstname(); ?></a></td>
+                <td><a href="/?controller=lead&action=home&id=<?=$lead->getId();?>"><?php echo $lead->getLastname(); ?></a></td>
+                <td><a href="/?controller=lead&action=home&id=<?=$lead->getId();?>"><?php echo $lead->getPhone(); ?></a></td>
+                <td><a href="/?controller=lead&action=home&id=<?=$lead->getId();?>"><?php echo $lead->getAddress(); ?></a></td>
+                <td><a href="/?controller=lead&action=home&id=<?=$lead->getId();?>"><?php echo $lead->getSquareFootage(); ?></a></td>
+                <td><a href="/?controller=lead&action=home&id=<?=$lead->getId();?>"><?php echo $lead->getStatus(); ?></a></td>
+                <td><a href="/?controller=lead&action=home&id=<?=$lead->getId();?>"><?php echo $lead->getUpdatedAt(); ?></a></td>
+                <td><a href="/?controller=lead&action=home&id=<?=$lead->getId();?>"><?php echo $lead->getCreatedAt(); ?></a></td>
             </tr>
         <?php endforeach; ?>
     <?php else: ?>
@@ -56,22 +83,27 @@
     ?>
 
 <?php if ($numberOfPages > 1) :?>
-    <label></label>
+<div class="pagination">
     <ul>
         <?php if ($block->setPagination()->getPage() > 1): ?>
-            <li><a href="index.php?controller=dashboard&action=home&ps=<?php echo $block->setPagination()->getPageSize(); ?>&p=<?php echo $block->setPagination()->getPage()-1; ?>">PREV</a></li>
+            <li><a href="/?controller=dashboard&action=home&ps=<?php echo $block->setPagination()->getPageSize(); ?>&p=<?php echo $block->setPagination()->getPage()-1; ?>">PREV</a></li>
         <?php endif; ?>
         <?php for ($x = 1; $x <= $numberOfPages; $x++): ?>
-        <li><a href="index.php?controller=dashboard&action=home&ps=<?php echo $block->setPagination()->getPageSize(); ?>&p=<?php echo $x; ?>"><?php echo $x; ?></a></li>
+        <li><a href="/?controller=dashboard&action=home&ps=<?php echo $block->setPagination()->getPageSize(); ?>&p=<?php echo $x; ?>"><?php echo $x; ?></a></li>
         <?php endfor; ?>
         <?php if ($block->setPagination()->getPage() < $numberOfPages): ?>
-            <li><a href="index.php?controller=dashboard&action=home&ps=<?php echo $block->setPagination()->getPageSize(); ?>&p=<?php echo $block->setPagination()->getPage()+1; ?>">NEXT</a></li>
+            <li><a href="/?controller=dashboard&action=home&ps=<?php echo $block->setPagination()->getPageSize(); ?>&p=<?php echo $block->setPagination()->getPage()+1; ?>">NEXT</a></li>
         <?php endif; ?>
     </ul>
+</div>
 <?php endif; ?>
 
 <div id="div1"><?php echo json_encode($block->getAllLeads()->toArray()); ?></div>
 
 <script>
+
+    $('#page-size').change(function () {
+        window.location = '/?controller=dashboard&action=home&ps=' + $(this).val();
+    });
 
 </script>

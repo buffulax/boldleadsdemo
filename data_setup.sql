@@ -11,3 +11,15 @@ status INT(1),
 updated_at timestamp,
 created_at timestamp default current_timestamp
 )
+
+CREATE TABLE webdata.users (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+email VARCHAR(50) NOT NULL,
+hash VARCHAR(120) NOT NULL,
+firstname VARCHAR(30) NOT NULL,
+lastname VARCHAR(30) NOT NULL,
+role INT(1),
+status INT(1),
+updated_at timestamp,
+created_at timestamp default current_timestamp
+)
